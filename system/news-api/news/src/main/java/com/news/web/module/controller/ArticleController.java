@@ -12,6 +12,7 @@ public class ArticleController {
     @Login
     @GetMapping("page")
     public Object getArticleList() {
-        return "文章列表接口";
+        // return "文章列表接口";
+        return "";
     }
 }
