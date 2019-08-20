@@ -66,6 +66,7 @@ public class AuthorizationInterceptor implements HandlerInterceptor {
             //TODO: handle exception
             logger.error("错误"+ ex.getMessage());
           }
+          return false;
         }
         // User user = userService.findUserById(userId);
         // if (user == null) {
