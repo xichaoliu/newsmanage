@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-NewsApplication<news>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "console": "internalConsole",
+      "mainClass": "com.news.web.NewsApplication",
+      "projectName": "news",
+      "args": ""
+    }
+  ]
+}

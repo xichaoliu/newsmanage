@@ -1,5 +1,7 @@
 package com.news.web.module.service.impl;
 
+import java.util.List;
+
 import com.news.web.module.dao.UserDao;
 import com.news.web.module.entity.User;
 import com.news.web.module.service.UserService;
@@ -19,9 +21,21 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User findUserById(String id) {
+    public  List<User> findUserById(String id) {
         return userDao.findUserById(id);
     }
 
+    @Override
+    public List<User> queryUserList() {
+        return userDao.queryUserList();
+    }
+    @Override
+    public Integer insertUser(User user) {
+        return userDao.insertUser(user);
+    }
+    @Override
+    public void deleteUser(String Id) {
+        userDao.deleteUser(Id);
+    }
 
 }

@@ -8,7 +8,16 @@
     </select>
     <select id="findUserById" resultType="com.news.web.module.entity.User">
         SELECT * FROM sys_usr
-      where
-      id=#{Id}
+        <if test="Id !=null and Id != ''">
+          WHERE
+          id=#{Id}
+        </if>
     </select>
+    <insert id="insertUser" parameterType="com.news.web.module.entity.User">
+      INSERT INTO sys_usr(usrname,password,type) 
+      VALUES (#{usrname}, #{password}, #{type})
+    </insert>
+    <delete id="deleteUser">
+      DELETE FROM sys_usr WHERE id=#{Id};
+    </delete>
 </mapper>
