@@ -4,8 +4,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletResponse;
+
 import com.news.web.module.entity.User;
 import com.news.web.module.service.UserService;
+import com.news.web.util.CookieUtil;
 import com.news.web.util.JwtUtil;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +36,7 @@ public class LoginController {
    * @return
    */
   @PostMapping("user")
-  public Object login(@RequestBody User user) {
+  public Object login(@RequestBody User user,HttpServletResponse response) {
     JwtUtil jwt = new JwtUtil();
     Map<String, Object> map = new HashMap<>();
     User userForBase = userService.findUserByname(user.getUsrname());
@@ -48,9 +51,10 @@ public class LoginController {
         return map;
       } else {
         String token = jwt.generateToken(userForBase);
+        CookieUtil.writeCookie(response, "token", token);
         map.put("code", 0);
         map.put("msg","登录成功");
-        map.put("token",token);
+        // map.put("token",token);
       }
     }
     return map;

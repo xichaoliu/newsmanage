@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'http://localhost:8081/';
+axios.defaults.baseURL = 'http://localhost:8080/';
+// axios.defaults.withCredentials = true;
 
 // 添加请求拦截器
 axios.interceptors.request.use(function (config) {

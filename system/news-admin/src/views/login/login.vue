@@ -19,7 +19,7 @@
   </div>
 </template>
 <script>
-import {loginByUsername} from '@/api/api.js'
+import ApiService from '@/api/api.js'
 export default {
   name: 'Login',
   data() {
@@ -33,7 +33,7 @@ export default {
   },
   methods: {
     handleLogin() {
-      loginByUsername(this.form.usrname, this.form.password)
+    ApiService.loginByUsername(this.form.usrname, this.form.password)
       .then((res)=> {
         if (res.data.code == 0) {
           this.$router.push('home');
